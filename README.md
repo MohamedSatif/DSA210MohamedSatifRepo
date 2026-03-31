@@ -46,6 +46,9 @@ This project explores the relationship between temperature and the stability of 
    Source: https://www.mdpi.com/1422-0067/25/16/8670?
    Date Published: 2024 August 8
 
+Data Collection Process:
+The data will be collected through a literature review process. Relevant studies will be identified, read, and compared based on the heating temperature, heating time, type of milk used, and calcium-related outcomes measured. The data used in this project will mainly be quantitative and experimental. It will include measurements such as temperature, heat treatment, calcium activity, and percentage changes in calcium concentration or solubility.
+
 # Hypothesis:
 I predict that the greater the cooking temperature, the less calcium content will remain in the solution since boiling milk to a higher degree may allow more calcium content to leach out. However, I do believe that this should have a limit. I think that the milk will stop losing calcium ions at a particular temperature. This is because a specific amount of calcium should be present in the Milk.
 
