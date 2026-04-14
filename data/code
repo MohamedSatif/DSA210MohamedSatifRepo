@@ -1,0 +1,24 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Dataset created from:
+# Magee, H.E. & Harvey, D. (1926)
+# "Studies on the Effect of Heat on Milk"
+# Source: PMC + uploaded PDF
+
+data = {
+    "temperature": [70, 75, 100, 100, 116],
+    "time": [30, 30, 15, 60, 16],
+    "calcium_loss": [-6, -5, -5.4, -10.7, -23.6]
+}
+
+df = pd.DataFrame(data)
+
+# Plot: Temperature vs Calcium Loss
+plt.scatter(df["temperature"], df["calcium_loss"])
+
+plt.xlabel("Temperature (°C)")
+plt.ylabel("Calcium Loss (%)")
+plt.title("Effect of Temperature on Calcium Loss in Milk")
+
+plt.show()
