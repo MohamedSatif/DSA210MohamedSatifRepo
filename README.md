@@ -50,6 +50,5 @@ Data Collection Process:
 The data will be collected through a literature review process. Relevant studies will be identified, read, and compared based on the heating temperature, heating time, type of milk used, and calcium-related outcomes measured. The data used in this project will mainly be quantitative and experimental. It will include measurements such as temperature, heat treatment, calcium activity, and percentage changes in calcium concentration or solubility.
 
 # Hypothesis:
-I predict that the greater the cooking temperature, the less calcium content will remain in the solution since boiling milk to a higher degree may allow more calcium content to leach out. However, I do believe that this should have a limit. I think that the milk will stop losing calcium ions at a particular temperature. This is because a specific amount of calcium should be present in the Milk.
-
+Increasing the heating temperature and duration of milk will decrease its measurable calcium content due to structural and chemical changes. However, this decrease will plateau after a certain threshold, as milk contains a finite amount of calcium. Therefore, calcium loss will follow a diminishing trend rather than a continuous linear decline.
 
