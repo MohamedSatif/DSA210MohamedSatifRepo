@@ -1,74 +1,213 @@
-# Analyzing how we mistakenly use Milk for calcium by loosing its benifits through heat!
+# Temperature and Nutrient Stability: The Effect of Heat on Calcium Content in Milk
 
-DSA 210 – Introduction to Data Science (Spring 2026)
+> *Are we unknowingly losing calcium every time we heat our milk?*
 
-Student - Mohamed Satif 
+**DSA 210 – Introduction to Data Science (Spring 2026)**  
+**Student:** Mohamed Satif
 
-# Project Title:
-Temperature and Nutrient Stability: An Analysis on the effect of heat on the calcium content within milk. 
+---
 
-# Research Question: 
+## Research Question
+
 Does heating milk affect its calcium content enough to impact its nutritional reliability?
 
-# Motivation:
-Milk and plant-based alternatives are widely recognized as primary dietary sources of calcium, a mineral essential for bone strength, muscle function, and overall physical performance. As someone who regularly goes to the gym and has experienced multiple bone fractures in the past, maintaining adequate calcium intake has become personally important to me. This led me to question whether common habits, such as heating milk or consuming it at different temperatures, could influence its nutritional reliability. In a previous experiment, I investigated how temperature affects the calcium content of hazelnut milk, which provided a foundation for understanding temperature-related changes at a chemical level. Building on this, the current study aims to explore whether such variations may have practical implications for individuals who rely on milk and similar beverages as consistent sources of calcium in their daily diet.
+---
 
-# Overview:
-This project explores the relationship between temperature and the stability of calcium in milk. By analyzing experimental data collected across different temperature conditions and integrating it with external nutritional and sports science sources, the study investigates whether heating affects the reliability of milk as a primary source of calcium. The goal is to determine whether temperature-induced changes in calcium content may have practical implications for individuals who rely on milk for bone health and athletic performance.
+## Motivation
 
-# Data Sources:
-1-  Mejares, C.T., Chandrapala, J., & Huppertz, T. (2023). Influence of Calcium-Sequestering Salts on Heat-Induced Changes in Blends of Skimmed Buffalo and Bovine Milk. Foods, 12(12), 2260. MDPI.
+Milk and plant-based alternatives are widely recognized as primary dietary sources of calcium — a mineral essential for bone strength, muscle function, and overall physical performance. As someone who regularly goes to the gym and has experienced multiple bone fractures, maintaining adequate calcium intake is personally important to me.
 
-URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC10253084/
+This led me to question whether common habits, such as heating milk, could influence its nutritional reliability. In a previous experiment, I investigated how temperature affects the calcium content of hazelnut milk, which provided a foundation for understanding temperature-related changes at a chemical level. This project builds on that by exploring whether such changes have practical implications for people who rely on milk as a consistent calcium source.
 
-Data used: Table 1 (particle size, zeta potential), Table 2 (pH, Ca²⁺ activity, viscosity) at 0°C, 85°C, 95°C for bovine skim, buffalo skim, and 50:50 blends.
+---
 
-2-  Magee, H.E., & Harvey, D. (1926). Studies on the Effect of Heat on Milk. Biochemical Journal, 20(4), 873–884. PMC.
+## Hypothesis
 
-URL: https://pmc.ncbi.nlm.nih.gov/articles/PMC1251792/
+Increasing heating temperature and duration will reduce the measurable soluble or ionic calcium fraction in milk due to heat-induced mineral redistribution and calcium-phosphate precipitation. However, this reduction is expected to follow a diminishing nonlinear trend rather than a continuous linear decline, since milk contains a finite amount of calcium available for redistribution.
 
-Data used: Soluble CaO loss percentages at 77°C and after pasteurisation (Bell & Grosser data cited within).
+---
 
-3-  Schreiber, R., Schreiber, G., et al. (2022). Heat-induced changes in milk salts. International Dairy Journal, 129. Elsevier ScienceDirect.
+## Data Sources
 
-URL: https://www.sciencedirect.com/science/article/pii/S095869462100248X
+| # | Study | Data Used |
+|---|---|---|
+| 1 | Mejares et al. (2023) | Ca²⁺ activity and pH at 0°C, 85°C, 95°C |
+| 2 | Magee & Harvey (1926) | Soluble calcium loss after heating |
+| 3 | Schreiber et al. (2022) | Calcium-phosphate precipitation thresholds |
+| 4 | Pouliot et al. (1999) | Relative calcium retention (%) |
+| 5 | Rahimi et al. (2024) | Calcium retention under UHT treatment |
+| 6 | On-Nom et al. (2010) | Ionic Ca²⁺ activity from 20°C–110°C |
+| 7 | Tessier & Rose (1958) | Early ionic calcium measurements |
+| 8 | Choi et al. (2013) | Soluble calcium in commercial milk |
 
-Data used: Qualitative and quantitative description of Ca-phosphate precipitation thresholds and salt balance shifts under heat.
+### Data Collection Process
 
-4-  Pouliot, Y., Boulet, M., & Paquin, P. (1999). Heat-induced changes in the calcium sensitivity of caseins. International Dairy Journal, 9(3–6). Elsevier ScienceDirect.
+Data was collected through a systematic literature review. Studies were selected based on:
+- heating temperature
+- heating duration
+- milk type
+- calcium-related outcome measured
 
-URL: https://www.sciencedirect.com/science/article/pii/S0958694600000121
+The final dataset combines experimental measurements from multiple peer-reviewed dairy science studies published between 1926 and 2024.
 
-Data used: Relative calcium retention (%) at temperatures 0°C, 70°C, 80°C, 90°C, 120°C.
+---
 
-5-  Rahimi, A., et al. (2024). The Impact of Thermal Treatment Intensity on Proteins, Fatty Acids, Macro/Micro-Nutrients, Flavor, and Heating Markers of Milk. International Journal of Molecular Sciences, 25(16), 8670. MDPI.
+## Dataset Overview
 
-URL: https://www.mdpi.com/1422-0067/25/16/8670
+The compiled dataset contains:
+- Temperature measurements ranging from 0°C to 135°C
+- Multiple milk categories (bovine, buffalo, skim, semi-skim, mixed blends)
+- Several heating treatments (pasteurization, HTST, UHT, calcium-sequestering salts)
+- Multiple calcium-related indicators:
+  - ionic calcium activity (mM)
+  - soluble calcium concentration
+  - calcium retention (%)
+  - pH measurements
 
-Data used: Relative calcium retention (%) at 0°C, 63°C, 72°C, 85°C, 95°C, and 121°C (UHT).
+### Dataset Variables
 
-6-  On-Nom, N., Grandison, A.S., & Lewis, M.J. (2010). Measurement of Ionic Calcium, pH, and Soluble Divalent Cations in Milk at High Temperature. Journal of Dairy Science, 93(2), 515–523. Elsevier.
+| Variable | Description |
+|---|---|
+| source | Research study source |
+| year | Publication year |
+| milk_type | Milk category/type |
+| treatment | Heat treatment or additive condition |
+| temperature_C | Heating temperature in Celsius |
+| calcium_activity_mM | Measured ionic calcium or calcium retention value |
+| pH | Milk acidity value |
 
-URL: https://www.journalofdairyscience.org/article/S0022-0302(10)71494-6/fulltext
+---
 
-Data used: Ionic Ca²⁺ (mM) measured via dialysis at 20°C, 40°C, 60°C, 80°C, 90°C, 100°C, and 110°C in bovine semi-skim milk. Provides the densest continuous temperature coverage in the dataset (20–110°C).
+## Methods Overview
 
-7-  Tessier, H., & Rose, D. (1958). Calcium Ion Concentration in Milk. Journal of Dairy Science, 41(3). Elsevier.
+### Exploratory Data Analysis (EDA)
 
-URL: https://www.journalofdairyscience.org/article/S0022-0302(58)90927-5/pdf
+EDA was conducted to visualize:
+- calcium activity changes across temperature ranges
+- pH variation under heating
+- differences between milk types
+- trends across historical studies
 
-Data used: Ionic Ca²⁺ (mM) at 20°C, 66°C, and 82°C in bovine skim milk. One of the earliest direct Ca²⁺ measurement studies, providing historical validation of the heating trend.
+Visualizations include:
+- scatter plots
+- regression curves
+- heat-treatment comparison plots
+- clustering visualizations
 
-8-  Choi, J., et al. (2013). Effect of Heat-Treatment Methods on the Soluble Calcium Levels in Commercial Milk Products. Food Science of Animal Resources (Korea Science), 33(2).
+---
 
-URL: https://koreascience.or.kr/article/JAKO201319850774909.page
+## Machine Learning Analysis
 
-Data used: Soluble Ca (mg/kg) in raw milk (450.2), LTLT-treated (340.7), HTST-treated (309.4), and UHT-treated (375.2) commercial bovine milk. Enables a bar chart comparison of commercial processing methods.
+The project applies supervised and unsupervised machine learning techniques to model heat-induced calcium changes.
 
+### 1. Regression Analysis
 
-Data Collection Process:
-The data will be collected through a literature review process. Relevant studies will be identified, read, and compared based on the heating temperature, heating time, type of milk used, and calcium-related outcomes measured. The data used in this project will mainly be quantitative and experimental. It will include measurements such as temperature, heat treatment, calcium activity, and percentage changes in calcium concentration or solubility.
+**Goal:** Predict ionic calcium activity from temperature.
 
-# Hypothesis:
-Increasing the heating temperature and duration of milk will decrease its measurable calcium content due to structural and chemical changes. However, this decrease will plateau after a certain threshold, as milk contains a finite amount of calcium. Therefore, calcium loss will follow a diminishing trend rather than a continuous linear decline.
+Models used:
+- Linear Regression
+- Polynomial Regression (degree = 2)
 
+Evaluation methods:
+- R² score
+- Leave-One-Out Cross Validation (LOO-CV)
+
+The polynomial model was specifically chosen to test the hypothesis that calcium reduction follows a nonlinear diminishing trend rather than a perfectly linear decline.
+
+---
+
+### 2. Classification Analysis
+
+**Goal:** Predict heat treatment severity from calcium activity and pH values.
+
+Heat severity classes:
+- Low Heat: 0–60°C
+- Medium Heat: 61–90°C
+- High Heat: >90°C
+
+Models used:
+- Decision Tree Classifier
+- Random Forest Classifier
+
+Evaluation methods:
+- 5-Fold Cross Validation
+- Classification reports
+- Confusion matrices
+- Feature importance analysis
+
+---
+
+### 3. Clustering Analysis
+
+**Goal:** Determine whether milk samples naturally group according to heating intensity without predefined labels.
+
+Method used:
+- K-Means Clustering
+
+---
+
+## Key Findings
+
+### Regression Results
+
+- Both regression models identified a strong negative relationship between temperature and ionic calcium activity.
+- Polynomial regression outperformed simple linear regression, supporting the hypothesis that calcium decline follows a nonlinear diminishing pattern.
+- Ionic calcium activity decreases rapidly at moderate temperatures before stabilizing at higher temperatures.
+
+---
+
+### Classification Results
+
+- Decision Tree and Random Forest models successfully classified milk samples into low, medium, and high heat categories using calcium activity and pH values.
+- Random Forest achieved the highest classification accuracy.
+- Feature importance analysis showed that temperature and calcium activity were the strongest predictors of heating severity.
+
+---
+
+### Clustering Results
+
+- K-Means clustering naturally separated samples into low-, medium-, and high-heat groups.
+- The clustering structure aligned closely with known thermal processing categories.
+- Silhouette analysis confirmed meaningful cluster separation.
+
+---
+
+## Main Conclusion
+
+Heating milk measurably reduces ionic and soluble calcium availability, particularly at moderate-to-high processing temperatures. Machine learning analyses demonstrated that these changes are systematic, predictable, and strongly associated with thermal treatment intensity.
+
+The results support the hypothesis that calcium reduction follows a nonlinear diminishing trend rather than a continuous linear decline.
+
+Although total calcium may not completely disappear, heat-induced redistribution and precipitation significantly affect the measurable ionic calcium fraction, which may influence nutritional reliability.
+
+---
+
+## Limitations
+
+- Data is sourced from published literature rather than original laboratory experiments
+- Experimental methods vary substantially across studies
+- Milk types differ between studies (bovine, buffalo, skim, semi-skim), limiting direct comparability
+- Some studies report ionic calcium while others report soluble calcium or retention percentages
+- Sample size remains relatively small for machine learning applications
+- Bioavailability of calcium after heating is not directly measured in most studies
+
+---
+
+## Future Improvements
+
+Potential extensions of this project include:
+- conducting original laboratory experiments for standardized measurements
+- separating ionic calcium and retention-percentage datasets into independent models
+- testing additional regression methods such as exponential decay models
+- investigating calcium bioavailability after digestion
+- comparing dairy milk with plant-based alternatives under identical thermal conditions
+
+---
+
+## Technologies Used
+
+- Python
+- Pandas
+- NumPy
+- Matplotlib
+- Seaborn
