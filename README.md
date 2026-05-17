@@ -211,3 +211,9 @@ Potential extensions of this project include:
 - NumPy
 - Matplotlib
 - Seaborn
+
+---
+
+## AI Tools Disclosure
+
+In accordance with DSA 210 academic integrity guidelines, AI assistance was used in this project. Claude (Anthropic) was used to help structure the README, review writing, and suggest analysis approaches.
